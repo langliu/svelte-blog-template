@@ -14,6 +14,12 @@ Hey friends! 👋
 
 ```ts
 function greet(name: string) {
-  console.log(`Hey ${name}! 👋`);
+	console.log(`Hey ${name}! 👋`);
 }
 ```
+
+<script>
+    import Counter from '$lib/Counter.svelte'
+</script>
+
+<Counter />

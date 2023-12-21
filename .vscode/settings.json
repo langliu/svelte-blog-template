@@ -5,6 +5,8 @@
         "jetbrains",
         "lucide",
         "mdsvex",
-        "neoconfetti"
+        "neoconfetti",
+        "rehype",
+        "shiki"
     ]
 }
