@@ -1,5 +1,9 @@
 <script>
 	import Header from './Header.svelte';
+	import Footer from './Footer.svelte';
+	import 'open-props/style';
+	import 'open-props/normalize';
+	import 'open-props/buttons';
 	import './styles.css';
 </script>
 
@@ -10,44 +14,26 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+	<Footer />
 </div>
 
 <style>
 	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+		height: 100%;
+		max-inline-size: 1440px;
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+		margin-inline: auto;
+		padding-inline: var(--size-7);
 	}
 
 	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
+		padding-block: var(--size-9);
 	}
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
+	@media (min-width: 1440px) {
+		.app {
+			padding-inline: 0;
 		}
 	}
 </style>
