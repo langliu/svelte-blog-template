@@ -67,4 +67,8 @@
 			margin-block: 0;
 		}
 	}
+
+	.corner {
+		width: 2em;
+	}
 </style>
