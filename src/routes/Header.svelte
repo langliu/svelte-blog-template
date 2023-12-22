@@ -3,16 +3,16 @@
 	import { title } from '$lib/config';
 	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
+	import Toggle from './toggle.svelte';
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
 	<nav>
+		<div class="corner">
+			<a href="https://kit.svelte.dev">
+				<img src={logo} alt="SvelteKit" />
+			</a>
+		</div>
 		<a href="/" class="title">
 			<b>{title}</b>
 		</a>
@@ -31,7 +31,7 @@
 			</li>
 		</ul>
 
-		<button>Toggle</button>
+		<Toggle />
 	</nav>
 
 	<div class="corner">
