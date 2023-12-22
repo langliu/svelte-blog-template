@@ -1,74 +1,97 @@
 <script>
 	import { page } from '$app/stores';
 	import { title } from '$lib/config';
-	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
 	import Toggle from './toggle.svelte';
+	import Logo from './Logo.svelte';
 </script>
 
 <header>
+	<Logo />
 	<nav>
-		<div class="corner">
-			<a href="https://kit.svelte.dev">
-				<img src={logo} alt="SvelteKit" />
-			</a>
-		</div>
-		<a href="/" class="title">
+		<!-- <a href="/" class="title">
 			<b>{title}</b>
-		</a>
+		</a> -->
 		<ul class="links">
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
+			<li>
+				<a href="/" class:selected={$page.url.pathname === '/'}>Home</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
+			<li>
+				<a href="/about" class:selected={$page.url.pathname === '/about'}>About</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/rss.xml') ? 'page' : undefined}>
-				<a href="/rss.xml" target="_blank">RSS</a>
+			<li>
+				<a class:selected={$page.url.pathname === '/rss.xml'} href="/rss.xml" target="_blank">RSS</a
+				>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
+			<li>
+				<a href="/sverdle" class:selected={$page.url.pathname === '/sverdle'}>Sverdle</a>
 			</li>
 		</ul>
 
 		<Toggle />
 	</nav>
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
 </header>
 
 <style>
-	nav {
-		padding-block: var(--size-7);
+	header {
+		display: flex;
+		margin: 0 auto;
+		max-width: 1400px;
+		padding: 2em;
+		width: 100%;
 	}
 
-	.links {
-		margin-block: var(--size-7);
+	nav {
+		align-items: center;
+		display: flex;
+		flex: 1;
+		font-family: var(--font-family-sans);
+		font-weight: 700;
+		justify-content: flex-end;
+		text-transform: uppercase;
+		gap: 20px;
+		& .links {
+			display: flex;
+			gap: 20px;
+		}
 	}
 
 	a {
 		color: inherit;
 		text-decoration: none;
+		padding: 10px 5px;
+		display: block;
+		position: relative;
+		min-width: 70px;
+		text-align: center;
 	}
 
-	@media (min-width: 768px) {
-		nav {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.links {
-			display: flex;
-			gap: var(--size-7);
-			margin-block: 0;
-		}
+	a:not(.selected) {
+		opacity: 0.7;
 	}
 
-	.corner {
-		width: 2em;
+	a::before {
+		content: '';
+		position: absolute;
+		transition: transform 0.3s ease;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 2px;
+		background: var(--text-2);
+		transform: scaleX(0);
+	}
+
+	a:hover::before,
+	.selected::before {
+		transform: scaleX(1);
+	}
+
+	.selected::before {
+		background: var(--primary-color);
+	}
+
+	.theme-toggle-container {
+		width: 75px;
 	}
 </style>

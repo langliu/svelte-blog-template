@@ -10,7 +10,7 @@ html {
 	--brand-dark: var(--orange-3);
 	--text-1-dark: var(--gray-3);
 	--text-2-dark: var(--gray-5);
-	--surface-1-dark: var(--gray-12);
+	--surface-1-dark: #202122;
 	--surface-2-dark: var(--gray-11);
 	--surface-3-dark: var(--gray-10);
 	--surface-4-dark: var(--gray-9);
@@ -41,6 +41,7 @@ html {
 	--surface-4: var(--surface-4-dark);
 	--background: var(--background-dark);
 	--border: var(--border-dark);
+	--primary-color: #548e9b;
 }
 
 @media (prefers-color-scheme: light) {
@@ -56,6 +57,7 @@ html {
 		--surface-4: var(--surface-4-light);
 		--background: var(--background-light);
 		--border: var(--border-light);
+		--primary-color: #548e9b;
 	}
 }
 
@@ -71,6 +73,7 @@ html {
 	--surface-4: var(--surface-4-dark);
 	--background: var(--background-dark);
 	--border: var(--border-dark);
+	--primary-color: #548e9b;
 }
 
 [color-scheme='light'] {
@@ -85,6 +88,7 @@ html {
 	--surface-4: var(--surface-4-light);
 	--background: var(--background-light);
 	--border: var(--border-light);
+	--primary-color: #548e9b;
 }
 
 html,
