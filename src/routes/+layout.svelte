@@ -7,7 +7,7 @@
 	import 'open-props/buttons';
 	import './styles.css';
 
-	export let data
+	export let data;
 </script>
 
 <div class="app">
@@ -39,6 +39,12 @@
 	@media (min-width: 1440px) {
 		.app {
 			padding-inline: 0;
+		}
+	}
+	@supports (scrollbar-gutter: stable) {
+		html {
+			overflow-y: auto;
+			scrollbar-gutter: stable;
 		}
 	}
 </style>
