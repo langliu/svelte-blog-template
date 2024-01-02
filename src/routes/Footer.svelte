@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-	<p>{title} &copy {new Date().getFullYear()} to learn SvelteKit</p>
+	<p>{title} &copy {new Date().getFullYear()} Powered by SvelteKit</p>
 </footer>
 
 <style>

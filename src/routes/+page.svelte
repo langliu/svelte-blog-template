@@ -1,7 +1,5 @@
 <script>
-	import { formatDate } from '$lib/utils/index';
 	import { title } from '$lib/config';
-	export let data;
 </script>
 
 <svelte:head>
@@ -9,43 +7,108 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<ul class="posts">
-		{#each data.posts as post}
-			<li class="post">
-				<a href={'/posts/' + post.slug} class="title">{post.title}</a>
-				<p class="date">{formatDate(post.date)}</p>
-				<p class="description">{post.description}</p>
-			</li>
-		{/each}
-	</ul>
-</section>
+<div class="home-container">
+	<div class="home-copy">
+		<h1>Welcome to your new Svelte Blog</h1>
+		<p>
+			Check out the docs on <a
+				href="https://github.com/langliu/svelte-blog-template"
+				target="_blank"
+				rel="noopener">GitHub</a
+			> to get started.
+		</p>
+	</div>
+
+	<div class="hero-image-container">
+		<picture>
+			<source srcset="/home-illustration.webp" media="(min-width: 600px)" />
+			<img
+				class="hero-image"
+				alt="Illustration of person reading a book"
+				src="/home-illustration-small.webp"
+				width="550"
+				height="466"
+			/>
+		</picture>
+		<p class="caption">
+			Illustration by
+			<a
+				href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6"
+				target="_blank"
+				rel="noopener">Icons 8</a
+			>
+			from
+			<a href="https://icons8.com/illustrations" target="_blank" rel="noopener">Ouch!</a>
+		</p>
+	</div>
+</div>
 
 <style>
-	.posts {
-		display: grid;
-		gap: 2rem;
+	.home-container {
+		align-items: center;
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		margin: 2em 0;
+		min-height: 400px;
 	}
 
-	.post {
-		max-inline-size: var(--size-content-3);
+	.home-copy {
+		flex: 1;
+		padding: 0 1em;
 	}
 
-	.post:not(:last-child) {
-		border-bottom: 1px solid var(--border);
-		padding-bottom: var(--size-7);
+	.home-copy h1 {
+		font-weight: 700;
+		margin-bottom: 0.5em;
+		line-height: 1.3;
 	}
 
-	.title {
-		font-size: var(--font-size-fluid-3);
-		text-transform: capitalize;
+	.home-copy p {
+		font-size: 1.4em;
 	}
 
-	.date {
-		color: var(--text-2);
+	.hero-image-container {
+		margin: 0 1em;
+		text-align: center;
 	}
 
-	.description {
-		margin-top: var(--size-3);
+	.hero-image-container picture {
+		display: block;
+		min-height: 250px;
+	}
+
+	.caption {
+		font-size: 0.8em;
+		font-style: italic;
+		text-align: left;
+	}
+
+	.hero-image {
+		width: 100%;
+		max-width: 550px;
+		margin-bottom: 1em;
+	}
+
+	@media (max-width: 1200px) {
+		p {
+			font-size: 1.2em;
+		}
+
+		.hero-image {
+			max-width: 400px;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.home-container {
+			flex-direction: column;
+		}
+
+		.home-copy {
+			flex: 0;
+			padding-bottom: 2em;
+			text-align: center;
+		}
 	}
 </style>

@@ -17,14 +17,14 @@
 				<a href="/" class:selected={$page.url.pathname === '/'}>Home</a>
 			</li>
 			<li>
+				<a href="/posts" class:selected={$page.url.pathname === '/posts'}>Blog</a>
+			</li>
+			<li>
 				<a href="/about" class:selected={$page.url.pathname === '/about'}>About</a>
 			</li>
 			<li>
 				<a class:selected={$page.url.pathname === '/rss.xml'} href="/rss.xml" target="_blank">RSS</a
 				>
-			</li>
-			<li>
-				<a href="/sverdle" class:selected={$page.url.pathname === '/sverdle'}>Sverdle</a>
 			</li>
 		</ul>
 
