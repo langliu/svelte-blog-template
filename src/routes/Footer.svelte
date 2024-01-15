@@ -14,5 +14,6 @@
 
 	p {
 		color: var(--text-2);
+		margin: 0;
 	}
 </style>

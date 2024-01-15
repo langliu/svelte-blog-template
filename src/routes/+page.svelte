@@ -26,8 +26,8 @@
 				class="hero-image"
 				alt="Illustration of person reading a book"
 				src="/home-illustration-small.webp"
-				width="550"
-				height="466"
+				width="538"
+				height="456"
 			/>
 		</picture>
 		<p class="caption">
@@ -49,7 +49,6 @@
 		display: flex;
 		flex: 1;
 		justify-content: center;
-		margin: 2em 0;
 		min-height: 400px;
 	}
 
@@ -88,6 +87,9 @@
 		width: 100%;
 		max-width: 550px;
 		margin-bottom: 1em;
+	}
+	p {
+		margin: 0;
 	}
 
 	@media (max-width: 1200px) {
