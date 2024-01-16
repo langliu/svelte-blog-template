@@ -3,8 +3,8 @@ title: First post
 description: First post.阿斯顿撒大苏打啊实打实大苏打
 date: '2023-4-14'
 categories:
-  - sveltekit
-  - svelte
+  - SvelteKit
+  - Svelte
 published: true
 ---
 
@@ -23,3 +23,4 @@ function greet(name: string) {
 </script>
 
 <Counter />
+[3465](sredfgergf)

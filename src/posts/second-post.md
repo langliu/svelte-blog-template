@@ -12,4 +12,6 @@ published: true
 
 Media inside the **static** folder is served from `/`.
 
-![Svelte](favicon.png)
+
+![Svelte](/beam-hr-reviews-online-resume.png)
+[asda](wesrfwesf)
