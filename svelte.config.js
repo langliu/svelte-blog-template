@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-auto';
-import shiki from 'shiki'
+import { getHighlighter } from 'shiki'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import remarkToc from 'remark-toc'
 import rehypeSlug from 'rehype-slug'
@@ -10,8 +10,11 @@ const mdsvexOptions = {
 	extensions: ['.md'],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await shiki.getHighlighter({ theme: 'poimandres' })
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+			const highlighter = await getHighlighter({
+				themes: ['poimandres', 'nord'],
+				langs: ['javascript', 'css', 'typescript', 'shell', 'bash']
+			})
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'nord' }))
 			return `{@html \`${html}\` }`
 		}
 	},
@@ -28,7 +31,7 @@ const config = {
 		adapter: adapter()
 	},
 	extensions: ['.svelte', '.md'],
-	preprocess:[mdsvex(mdsvexOptions)]
+	preprocess: [mdsvex(mdsvexOptions)]
 };
 
 export default config;
