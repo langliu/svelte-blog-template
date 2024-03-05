@@ -1,9 +1,20 @@
 <script lang="ts">
+  import { browser } from '$app/environment'
   import Giscus from '@giscus/svelte'
   import { formatDate } from '$lib/utils'
 
   export let data
-  // let theme = document.documentElement.getAttribute('color-scheme')
+  let theme = 'light'
+  if (browser) {
+    theme = localStorage.getItem('color-scheme') ?? 'light'
+    const mutationObserver = new MutationObserver(() => {
+      theme = document.documentElement.getAttribute('color-scheme') ?? 'light'
+    })
+    mutationObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['color-scheme']
+    })
+  }
 </script>
 
 <!-- SEO -->
@@ -44,7 +55,7 @@
     reactionsEnabled="1"
     emitMetadata="0"
     inputPosition="bottom"
-    theme="dark"
+    theme={theme ?? 'light'}
     lang="zh-CN"
     loading="lazy" />
 </article>
